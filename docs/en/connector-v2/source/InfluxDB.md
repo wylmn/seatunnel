@@ -153,6 +153,8 @@ source {
         lower_bound = 1
         partition_num = 4
         split_column = "value"
+        username = "admin"
+        password = "admin"
         schema {
             fields {
                 label = STRING
@@ -175,6 +177,8 @@ source {
         url = "http://influxdb-host:8086"
         sql = "select label, value, rt, time from test"
         database = "test"
+        username = "admin"
+        password = "admin"
         schema {
             fields {
                 label = STRING
@@ -186,6 +190,12 @@ source {
 
 }
 ```
+## tips
+
+The username and password are not the username and password for logging in to the UI page
+1.  Execute the command "influx v1 auth list" on the client to view permissions
+2.  Execute the command "influx v1 auth create -o orgName --read-bucket bucketId --username=username" to create a user and assign permissions
+   this username and password are used here
 
 ## Changelog
 
